@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "640355932706",
+    "project_id": "malu-97lsb5",
+    "storage_bucket": "malu-97lsb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640355932706:android:be02ba7a408d4dd4fa487b",
+        "android_client_info": {
+          "package_name": "com.mycompany.malu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-qnktxEqyGd8mCgFWGF5UjiRk1lpjrHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
