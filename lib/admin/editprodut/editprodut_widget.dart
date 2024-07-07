@@ -65,53 +65,59 @@ class _EditprodutWidgetState extends State<EditprodutWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: const Color(0xFFE89AC7),
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          title: Text(
-            'Malu Crochês',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
+        appBar: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+          desktop: false,
+        )
+            ? AppBar(
+                backgroundColor: const Color(0xFFE89AC7),
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: const Icon(
+                    Icons.arrow_back_rounded,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    context.pop();
+                  },
                 ),
-          ),
-          actions: [
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                await widget.teste!.reference.delete();
+                title: Text(
+                  'Malu Crochês',
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Outfit',
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+                actions: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await widget.teste!.reference.delete();
 
-                context.pushNamed('dashboardAdmin');
-              },
-              child: const Icon(
-                Icons.delete_forever,
-                color: Colors.white,
-                size: 30.0,
-              ),
-            ),
-          ],
-          centerTitle: true,
-          elevation: 2.0,
-        ),
+                      context.pushNamed('dashboardAdmin');
+                    },
+                    child: const Icon(
+                      Icons.delete_forever,
+                      color: Colors.white,
+                      size: 30.0,
+                    ),
+                  ),
+                ],
+                centerTitle: true,
+                elevation: 2.0,
+              )
+            : null,
         body: SafeArea(
           top: true,
           child: Padding(
