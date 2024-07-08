@@ -103,9 +103,35 @@ class _EditprodutWidgetState extends State<EditprodutWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      await widget.teste!.reference.delete();
-
-                      context.pushNamed('dashboardAdmin');
+                      var confirmDialogResponse = await showDialog<bool>(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: const Text('Apagar?'),
+                                content:
+                                    const Text('Deseja mesmo apagar esse produto?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(
+                                        alertDialogContext, false),
+                                    child: const Text('Cancelar'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext, true),
+                                    child: const Text('Confirmar'),
+                                  ),
+                                ],
+                              );
+                            },
+                          ) ??
+                          false;
+                      if (confirmDialogResponse) {
+                        await widget.teste!.reference.delete();
+                        context.safePop();
+                      } else {
+                        Navigator.pop(context);
+                      }
                     },
                     child: const Icon(
                       Icons.delete_forever,
