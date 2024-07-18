@@ -128,6 +128,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       }
                       List<ProductsRecord> gridViewProductsRecordList =
                           snapshot.data!;
+
                       return GridView.builder(
                         padding: const EdgeInsets.fromLTRB(
                           0,

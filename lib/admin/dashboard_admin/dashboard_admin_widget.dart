@@ -150,6 +150,7 @@ class _DashboardAdminWidgetState extends State<DashboardAdminWidget> {
                       }
                       List<ProductsRecord> gridViewProductsRecordList =
                           snapshot.data!;
+
                       return GridView.builder(
                         padding: const EdgeInsets.fromLTRB(
                           0,
