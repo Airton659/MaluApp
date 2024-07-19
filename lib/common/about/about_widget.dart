@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'about_model.dart';
@@ -106,20 +107,20 @@ class _AboutWidgetState extends State<AboutWidget> {
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://picsum.photos/seed/708/600',
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
+                        child: Image.asset(
+                          'assets/images/produto_3.JPG',
+                          width: 333.0,
+                          height: 298.0,
+                          fit: BoxFit.fill,
                         ),
                       ),
                       Align(
                         alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 40.0, 0.0, 0.0),
+                              0.0, 10.0, 0.0, 10.0),
                           child: Text(
-                            'Malu Crochês é uma marca especializada na produção de belíssimos trabalhos em crochê. \nNossos produtos são cuidadosamente feitos à mão, utilizando materiais de alta qualidade para garantir durabilidade e beleza.  \nA qualidade é uma prioridade para nós. ',
+                            'Malu Crochês é uma marca especializada na produção de belíssimos trabalhos em crochê, onde a qualidade é uma prioridade. \nNossos produtos são cuidadosamente feitos à mão com amor e dedicação, utilizando materiais de alta qualidade para garantir durabilidade e beleza. \nTransformamos fios em peças únicas que encantam e aquecem o coração, abrangendo uma variedade de produtos.\n Valorizamos o artesanato e a tradição, proporcionando itens que refletem carinho e beleza em cada detalhe. Venha conhecer meu trabalho e se encantar com a delicadeza do crochê artesanal!',
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -130,40 +131,54 @@ class _AboutWidgetState extends State<AboutWidget> {
                           ),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 100.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.mail_outlined,
-                              color: Color(0xFFE89AC7),
-                              size: 50.0,
-                            ),
-                            FaIcon(
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              unawaited(
+                                () async {
+                                  await launchURL(
+                                      'https://www.instagram.com/maluc_croches/');
+                                }(),
+                              );
+                            },
+                            child: const FaIcon(
                               FontAwesomeIcons.instagramSquare,
                               color: Color(0xFFE89AC7),
                               size: 50.0,
                             ),
-                            FaIcon(
-                              FontAwesomeIcons.facebookSquare,
-                              color: Color(0xFFE89AC7),
-                              size: 50.0,
-                            ),
-                            FaIcon(
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              unawaited(
+                                () async {
+                                  await launchURL(
+                                      'https://l.instagram.com/?u=http%3A%2F%2Fwa.me%2F5531986222604&e=AT1eupNodwZX6JACCF9cYtazpPO76zgwZZ5G3NWrrGfHxgFuXDUGnldbzmxjPaDsg1_-9exd-17UQV7cVZh32-LAu-fnrvzU');
+                                }(),
+                              );
+                            },
+                            child: const FaIcon(
                               FontAwesomeIcons.whatsapp,
                               color: Color(0xFFE89AC7),
                               size: 50.0,
                             ),
-                            FaIcon(
-                              FontAwesomeIcons.globe,
-                              color: Color(0xFFE89AC7),
-                              size: 50.0,
-                            ),
-                          ],
-                        ),
+                          ),
+                          const FaIcon(
+                            FontAwesomeIcons.globe,
+                            color: Color(0xFFE89AC7),
+                            size: 50.0,
+                          ),
+                        ],
                       ),
                     ],
                   ),
